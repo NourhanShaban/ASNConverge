@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.a.myapplication"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="26" />
+
+    <!--
+     permistion added by ahmed
+     to use bluetooth for the OBD
+    -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- to access user's exact current location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- to access user's approximate current location -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- checks whether or not you can currently download data from Google Maps -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="com.example.a.myapplication.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.a.myapplication.permission.C2D_MESSAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="com.example.a.myapplication.SelecedCenterActivity" />
+        <activity android:name="com.example.a.myapplication.MaintenanceTimeActivity" />
+        <activity
+            android:name="com.example.a.myapplication.MainActivity"
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.a.myapplication.SignIn" />
+        <activity android:name="com.example.a.myapplication.SignUP2" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB4QDyMfn9YJTOC57jK7K2gFYEArvX_NTc" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.example.a.myapplication.Home"
+            android:label="@string/title_activity_home" />
+        <activity android:name="com.example.a.myapplication.ProfileActivity" />
+        <activity
+            android:name="com.example.a.myapplication.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name="com.example.a.myapplication.Main2Activity" />
+        <activity android:name="com.example.a.myapplication.SecondActivity" />
+
+        <service
+            android:name="com.example.a.myapplication.services.MyFirebaseInstanceIdService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.example.a.myapplication.services.MyFirebaseMessagingService" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.example.a.myapplication.DriverMapActivity"
+            android:label="@string/title_activity_driver_map" >
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            -->
+        </activity>
+        <activity android:name="com.example.a.myapplication.HelpActivity" />
+
+        <service
+            android:name="com.example.a.myapplication.sync.HelpIntentService"
+            android:exported="false" />
+
+        <activity android:name="com.example.a.myapplication.ObdActivity" />
+        <activity android:name="com.example.a.myapplication.EngineDataActivity" />
+        <activity android:name="com.example.a.myapplication.ControllDataActivity" />
+        <activity android:name="com.example.a.myapplication.FuelDataActivity" />
+        <activity android:name="com.example.a.myapplication.OldMainActivityobd" />
+        <activity android:name="com.example.a.myapplication.ExpertDataActivity" />
+        <activity android:name="com.example.a.myapplication.TempDataActivity" />
+        <activity android:name="com.example.a.myapplication.PressureDataActivity" />
+        <activity android:name="com.example.a.myapplication.Waiting" />
+        <activity android:name="com.example.a.myapplication.SendHelp" />
+        <activity android:name="com.example.a.myapplication.AcceptorInfo" />
+        <activity android:name="com.example.a.myapplication.ConnectionRequestsActivity" />
+        <activity android:name="com.example.a.myapplication.ConnectionSenderProfileActivity" />
+        <activity android:name="com.example.a.myapplication.TroubleCodesActivity" />
+        <activity android:name="com.example.a.myapplication.DriverModeActivity" />
+        <activity android:name="com.example.a.myapplication.TroubleCodesActivity2" />
+        <activity android:name="com.example.a.myapplication.ObdExplainationActivity" />
+        <activity
+            android:name="com.example.a.myapplication.CenterSelectionActivity"
+            android:label="Service Centers" />
+        <activity android:name="com.example.a.myapplication.Profile2Activity" />
+        <activity
+            android:name="com.example.a.myapplication.OffersActivity"
+            android:label="@string/title_activity_offers"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.a.myapplication.TrackersListActivity" />
+        <activity android:name="com.example.a.myapplication.TrackerProfileActivity" />
+        <activity android:name="com.example.a.myapplication.MainHomeActivity" />
+        <activity android:name="com.example.a.myapplication.CBcatalogue" />
+        <activity android:name="com.example.a.myapplication.CBHome" />
+        <activity android:name="com.example.a.myapplication.CBMainActivity2" />
+        <activity android:name="com.example.a.myapplication.CBProfileActivity" />
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
+        <!--
+ FirebaseMessagingService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.example.a.myapplication" />
+            </intent-filter>
+        </receiver>
+        <!--
+ Internal (not exported) receiver used by the app to start its own exported services
+             without risk of being spoofed.
+        -->
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+            android:exported="false" />
+        <!--
+ FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.example.a.myapplication.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="android.arch.lifecycle.VERSION"
+            android:value="27.0.0-SNAPSHOT" />
+    </application>
+
+</manifest>

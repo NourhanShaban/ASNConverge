@@ -1,0 +1,4 @@
+#Wed Jul 04 04:29:46 EET 2018
+base.0=C\:\\Users\\ecs\\Downloads\\Compressed\\ASN-master\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
